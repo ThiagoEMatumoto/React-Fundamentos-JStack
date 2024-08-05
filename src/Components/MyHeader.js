@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
-
-const MyHeader = ({ children }) => {
+import Button from "./Button";
+import { ThemeContext } from "../Providers/ThemeContext.js";
+const MyHeader = ({ children, title }) => {
+  const { ontoggleTheme } = useContext(ThemeContext);
   return (
     <>
       <header>
-        <h1>Aplicação Reat</h1>
+        <h1>{title}</h1>
+        <Button action={ontoggleTheme}>
+          <p>Change Theme</p>
+        </Button>
         {children}
       </header>
       <hr />
@@ -14,6 +19,7 @@ const MyHeader = ({ children }) => {
 };
 
 MyHeader.propTypes = {
+  title: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 export default MyHeader;
