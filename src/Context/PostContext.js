@@ -10,6 +10,7 @@ export const PostProvider = ({ children }) => {
       subtitle: "subtitulo - 1",
       likes: Math.floor(Math.random() * 10000),
       read: false,
+      removed: true,
     },
     {
       id: Math.random(),
@@ -17,6 +18,7 @@ export const PostProvider = ({ children }) => {
       subtitle: "subtitulo - 2",
       likes: Math.floor(Math.random() * 10000),
       read: false,
+      removed: false,
     },
     {
       id: Math.random(),
@@ -24,6 +26,7 @@ export const PostProvider = ({ children }) => {
       subtitle: "subtitulo - 3",
       likes: Math.floor(Math.random() * 10000),
       read: false,
+      removed: false,
     },
     {
       id: Math.random(),
@@ -31,6 +34,7 @@ export const PostProvider = ({ children }) => {
       subtitle: "subtitulo - 4",
       likes: Math.floor(Math.random() * 10000),
       read: false,
+      removed: false,
     },
     {
       id: Math.random(),
@@ -38,6 +42,7 @@ export const PostProvider = ({ children }) => {
       subtitle: "subtitulo - 5",
       likes: Math.floor(Math.random() * 10000),
       read: false,
+      removed: false,
     },
     {
       id: Math.random(),
@@ -45,6 +50,7 @@ export const PostProvider = ({ children }) => {
       subtitle: "subtitulo - 6",
       likes: Math.floor(Math.random() * 10000),
       read: false,
+      removed: false,
     },
   ]);
   const handleRefresh = () => {
@@ -56,12 +62,22 @@ export const PostProvider = ({ children }) => {
         subtitle: `subtitulo - ${posts.length + 1}`,
         likes: Math.floor(Math.random() * 10000),
         read: false,
+        removed: false,
       },
     ]);
   };
 
   const handleRemovePost = (postID) => {
-    setPosts((prev) => prev.filter((post) => post.id !== postID));
+    setPosts((prev) =>
+      prev.map((post) =>
+        post.id === postID
+          ? {
+              ...post,
+              removed: true,
+            }
+          : post
+      )
+    );
   };
 
   const handleReadPost = (postID) => {

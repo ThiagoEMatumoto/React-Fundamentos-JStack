@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import Button from "./Button";
-import { PostContext } from "../Providers/PostContext.js";
+import Button from "../Button/Button.js";
+import { PostContext } from "../../Context/PostContext.js";
 const PostHeader = ({ read, title, id }) => {
   const { onRemove } = useContext(PostContext);
   return (

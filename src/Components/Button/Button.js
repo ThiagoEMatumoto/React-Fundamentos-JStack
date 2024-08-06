@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { ThemeContext } from "../Providers/ThemeContext.js";
+import { ThemeContext } from "../../Context/ThemeContext.js";
 
 const Button = ({ children, action }) => {
   const { theme } = useContext(ThemeContext);
@@ -20,7 +20,6 @@ const Button = ({ children, action }) => {
 };
 
 Button.propTypes = {
-  theme: PropTypes.string.isRequired,
   action: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };

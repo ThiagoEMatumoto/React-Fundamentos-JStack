@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Post from "./Components/Post.js";
-import MyHeader from "./Components/MyHeader.js";
-import Button from "./Components/Button.js";
-import { ThemeProvider } from "./Providers/ThemeContext.js";
-import { PostContext } from "./Providers/PostContext.js";
+import Post from "./Components/Post/Post.js";
+import MyHeader from "./Components/MyHeader/MyHeader.js";
+import Button from "./Components/Button/Button.js";
+import { ThemeProvider } from "./Context/ThemeContext.js";
+import { PostContext } from "./Context/PostContext.js";
 
 function App() {
   const { onRefresh, posts } = useContext(PostContext);
