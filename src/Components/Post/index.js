@@ -2,18 +2,16 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import PostHeader from "./PostHeader.js";
 import { PostContext } from "../../Context/PostContext.js";
-import * as styles from "./Post.scss";
+import { Subtitle, Rate, Title } from "./styles.js";
+
 const Post = ({ post }) => {
   const { onRead } = useContext(PostContext);
   return (
     <>
-      <article
-        className={post.removed ? styles.body_deleted : styles.body}
-        onClick={() => onRead(post.id)}
-      >
+      <article onClick={() => onRead(post.id)}>
         <PostHeader title={post.title} read={post.read} id={post.id} />
-        <p>{post.subtitle}</p>
-        <p>{post.likes}</p>
+        <Subtitle>{post.subtitle}</Subtitle>
+        <Rate>{post.likes}</Rate>
       </article>
       <br />
     </>

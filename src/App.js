@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import Post from "./Components/Post/Post.js";
-import MyHeader from "./Components/MyHeader/MyHeader.js";
-import Button from "./Components/Button/Button.js";
+import Post from "./Components/Post";
+import MyHeader from "./Components/MyHeader";
+import Button from "./Components/Button";
 import { ThemeProvider } from "./Context/ThemeContext.js";
 import { PostContext } from "./Context/PostContext.js";
 
